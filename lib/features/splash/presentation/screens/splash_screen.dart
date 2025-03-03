@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thevirtuworld/features/auth/presentation/screens/login_screen.dart';
+import 'package:thevirtuworld/features/auth/presentation/screens/register_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const LoginScreen()),
+              MaterialPageRoute(builder: (context) => RegisterScreen()),
             );
           },
           child: const Text('Go to Login'),
@@ -25,7 +25,9 @@ class SplashScreen extends StatelessWidget {
           onHover: (hovering) {
             if (hovering) {
               // change color to red
-              
+
+
+
               // change text to 'Go to Login'
             }
           },
@@ -35,5 +37,6 @@ class SplashScreen extends StatelessWidget {
 
 
     );
+    )
   }
 }
