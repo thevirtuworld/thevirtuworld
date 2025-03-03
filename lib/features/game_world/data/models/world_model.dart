@@ -1,6 +1,10 @@
 import 'dart:math';
 import 'dart:ui';
 import '../../domain/entities/world_entity.dart';
+import '../../domain/entities/region_entity.dart';
+import '../../domain/entities/player_entity.dart';
+import '../../domain/entities/game_object_entity.dart';
+import '../../domain/entities/terrain_entity.dart';
 import 'region_model.dart';
 import 'player_model.dart';
 import 'game_object_model.dart';

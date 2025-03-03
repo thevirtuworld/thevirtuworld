@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import '../navigation/app_router.dart';
+import '../navigation/app_router.gr.dart';
 import './storage_service.dart';
 import './auth_service.dart';
 import '../../features/game_world/domain/repositories/world_repository.dart';

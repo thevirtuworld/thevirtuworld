@@ -78,11 +78,12 @@ class PhysicsController {
     final dy = pos2.dy - pos1.dy;
     final distance = sqrt(dx * dx + dy * dy);
 
-    if (distance == 0)
+    if (distance == 0) {
       return [
         SimulationResult(newPosition: pos1, updatedPhysics: physics1),
-        SimulationResult(newPosition: newPos2, updatedPhysics: physics2),
+        SimulationResult(newPosition: pos2, updatedPhysics: physics2),
       ];
+    }
 
     final nx = dx / distance;
     final ny = dy / distance;
