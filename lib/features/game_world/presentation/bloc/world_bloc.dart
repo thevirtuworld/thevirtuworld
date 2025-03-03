@@ -80,6 +80,7 @@ class WorldBloc extends Bloc<WorldEvent, WorldState> {
   final UpdateWorldUseCase updateWorld;
   final PhysicsController _physicsController = getIt<PhysicsController>();
   Timer? _gameLoopTimer;
+  bool _isGameLoopRunning = false;
 
   WorldBloc({required this.loadWorld, required this.updateWorld})
     : super(WorldInitialState()) {
@@ -90,15 +91,24 @@ class WorldBloc extends Bloc<WorldEvent, WorldState> {
   }
 
   void startGameLoop() {
+    if (_isGameLoopRunning) return;
+
     _gameLoopTimer?.cancel();
     _gameLoopTimer = Timer.periodic(const Duration(milliseconds: 16), (timer) {
       add(GameTickEvent(1 / 60)); // 60 fps fixed time step
     });
+    _isGameLoopRunning = true;
+  }
+
+  void pauseGameLoop() {
+    _gameLoopTimer?.cancel();
+    _isGameLoopRunning = false;
   }
 
   @override
   Future<void> close() {
     _gameLoopTimer?.cancel();
+    _isGameLoopRunning = false;
     return super.close();
   }
 

@@ -14,7 +14,8 @@ class VirtuWorldApp extends StatelessWidget {
       title: 'TheVirtuWorld',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode:
+          ThemeMode.dark, // Default to dark theme for better game experience
       debugShowCheckedModeBanner: false,
       routerDelegate: router.delegate(),
       routeInformationParser: router.defaultRouteParser(),

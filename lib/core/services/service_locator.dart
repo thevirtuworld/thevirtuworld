@@ -5,6 +5,7 @@ import './auth_service.dart';
 import '../../features/game_world/domain/repositories/world_repository.dart';
 import '../../features/game_world/domain/usecases/world_usecases.dart';
 import '../../features/game_world/data/repositories/world_repository_impl.dart';
+import '../../features/game_world/data/datasources/world_local_datasource.dart';
 import '../../features/game_world/presentation/bloc/world_bloc.dart';
 import '../../features/game_world/presentation/controllers/physics_controller.dart';
 
@@ -20,8 +21,14 @@ Future<void> setupServiceLocator() async {
   getIt.registerSingleton<StorageService>(storageService);
   getIt.registerSingleton<AuthService>(AuthService());
 
+  // Data sources
+  getIt.registerLazySingleton<WorldLocalDataSource>(
+    () => WorldLocalDataSource(),
+  );
+
   // Repositories
-  getIt.registerLazySingleton<WorldRepository>(() => WorldRepositoryImpl());
+  final worldRepository = WorldRepositoryImpl();
+  getIt.registerLazySingleton<WorldRepository>(() => worldRepository);
 
   // Use cases
   getIt.registerLazySingleton<LoadWorldUseCase>(
@@ -29,6 +36,9 @@ Future<void> setupServiceLocator() async {
   );
   getIt.registerLazySingleton<UpdateWorldUseCase>(
     () => UpdateWorldUseCase(getIt<WorldRepository>()),
+  );
+  getIt.registerLazySingleton<GetAvailableGamesUseCase>(
+    () => GetAvailableGamesUseCase(getIt<WorldRepository>()),
   );
 
   // Controllers
