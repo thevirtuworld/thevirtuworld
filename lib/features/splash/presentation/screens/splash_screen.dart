@@ -14,10 +14,22 @@ class SplashScreen extends StatelessWidget {
         child: ElevatedButton(
 
           // when button is pressed go to login
-          onPressed: ,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()),
+            );
+          },
+          child: const Text('Go to Login'),
+          // add hover effect
+          onHover: (hovering) {
+            if (hovering) {
+              // change color to red
+              
+              // change text to 'Go to Login'
+            }
+          },
            
-          // onHover: ButtonStyle.new(backgroundColor: Color.alphaBlend(foreground, background)),
-
       
       )
 
