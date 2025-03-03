@@ -62,6 +62,16 @@ class _AppRouterDelegate extends RouterDelegate<Object> with ChangeNotifier {
 
   @override
   GlobalKey<NavigatorState>? get navigatorKey => router.navigatorKey;
+
+  @override
+  Future<bool> popRoute() {
+    final navigator = navigatorKey?.currentState;
+    if (navigator != null && navigator.canPop()) {
+      navigator.pop();
+      return Future.value(true);
+    }
+    return Future.value(false);
+  }
 }
 
 // Route parser implementation
