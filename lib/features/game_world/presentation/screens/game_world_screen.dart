@@ -75,6 +75,7 @@ class _GameWorldScreenState extends State<GameWorldScreen>
                   // Game renderer
                   GameRenderer(world: state.world),
 
+                  // setup
                   // Controls
                   if (_showControls)
                     Positioned(
