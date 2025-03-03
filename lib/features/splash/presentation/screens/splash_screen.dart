@@ -6,37 +6,21 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      // body: Center(child: Text('Splash Screen')),
-
-      // add button that leads to login screen
+    return Scaffold(
       body: Center(
         child: ElevatedButton(
-
-          // when button is pressed go to login
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => RegisterScreen()),
+              MaterialPageRoute(builder: (context) => const RegisterScreen()),
             );
           },
-          child: const Text('Go to Login'),
-          // add hover effect
+          child: const Text('Go to Signup'),
           onHover: (hovering) {
-            if (hovering) {
-              // change color to red
-
-
-
-              // change text to 'Go to Login'
-            }
+            // Add hover effect logic here if needed
           },
-           
-      
-      )
-
-
+        ),
+      ),
     );
-    )
   }
 }
